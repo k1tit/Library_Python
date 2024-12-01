@@ -22,12 +22,13 @@ MENU_OPTIONS = {
 
 def display_menu():
     """Отображает меню для пользователя."""
-    print("\n==================================")
-    print("        Управление Библиотекой")
-    print("==================================")
-    for key, value in MENU_OPTIONS.items():
-        print(f"{key}. {value}")
-    print("==================================")
+    menu_content = "\n==================================\n" \
+                   "        Управление Библиотекой\n" \
+                   "==================================\n" \
+                   + "\n".join(f"{key}. {value}" for key, value in MENU_OPTIONS.items()) + \
+                   "\n=================================="
+    print(menu_content)
+
 
 def get_user_choice(options: dict, prompt: str) -> str:
     """Получает выбор пользователя из списка вариантов."""
